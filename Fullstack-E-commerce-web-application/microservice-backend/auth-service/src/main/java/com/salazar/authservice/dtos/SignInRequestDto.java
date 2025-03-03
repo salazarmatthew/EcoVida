@@ -13,4 +13,7 @@ public class SignInRequestDto {
     @NotBlank(message = "Password is required!")
     private String password;
 
+    public SignInRequestDto() {
+        
+    }
 }
