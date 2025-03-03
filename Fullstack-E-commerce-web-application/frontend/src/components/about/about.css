@@ -1,0 +1,323 @@
+/* Asegurando compatibilidad con la paleta de colores existente */
+:root {
+  --mocha-dark: #4A2C2A;
+  --mocha-medium: #8B5E3C;
+  --mocha-light: #D9A384;
+  --mocha-accent: #F2D7B6;
+  --leaf-green: #4B7F52;
+  --text-light: #FFF8F0;
+  --shadow-color: rgba(74, 44, 42, 0.2);
+}
+
+.about {
+  position: relative; /* En lugar de fixed o absolute */
+  margin: 4rem auto 4rem; /* Añadir margen inferior explícito */
+  max-width: 1400px;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px var(--shadow-color);
+  z-index: 1; /* Evitar superponerse a otros elementos */
+}
+
+/* Imagen de fondo con efecto paralaje sutil */
+.about-image {
+  position: relative;
+  height: 400px;
+  background-image: linear-gradient(to bottom, rgba(74, 44, 42, 0.7), rgba(139, 94, 60, 0.7)), 
+                    url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Efecto de superposición orgánica */
+.about-image::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.about-image h3 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-light);
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  letter-spacing: 1px;
+  max-width: 80%;
+  text-align: center;
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: fadeUp 1s forwards 0.5s;
+}
+
+.about-content {
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+/* Reset de estilos que podrían estar afectando al footer */
+.about *::before,
+.about *::after {
+  z-index: auto;
+}
+
+/* Título con decoración elegante */
+.about-content h1 {
+  color: var(--mocha-dark);
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  position: relative;
+  font-weight: 800;
+}
+
+.about-content h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--mocha-medium), var(--mocha-light));
+  border-radius: 2.5px;
+}
+
+/* Estilizando los párrafos para mejor legibilidad */
+.about-content p {
+  margin-bottom: 1.8rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.about-content p:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.about-content p:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.about-content p:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.about-content strong {
+  color: var(--mocha-dark);
+  font-weight: 700;
+  position: relative;
+  padding: 0 2px;
+}
+
+.about-content strong::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(217, 163, 132, 0.3);
+  z-index: -1;
+  transition: height 0.3s ease;
+}
+
+.about-content strong:hover::after {
+  height: 100%;
+}
+
+/* Contenedor de iconos con diseño elegante */
+.icon-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s forwards 0.8s;
+}
+
+/* Iconos llamativos con efectos de hover */
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-radius: 16px;
+  background: #fff;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 10px 30px -5px var(--shadow-color);
+}
+
+.icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--mocha-light), var(--mocha-accent));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+.icon:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 20px 40px -10px var(--shadow-color);
+}
+
+.icon:hover::before {
+  opacity: 0.2;
+}
+
+.icon:hover i {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--leaf-green);
+}
+
+.icon i {
+  font-size: 3rem;
+  color: var(--mocha-medium);
+  margin-bottom: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.icon span {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--mocha-dark);
+  letter-spacing: 0.5px;
+}
+
+/* Animación de elemento decorativo */
+.about-content::before {
+  content: '';
+  position: absolute;
+  right: -50px;
+  bottom: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--mocha-accent) 0%, transparent 70%);
+  opacity: 0.5;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Efectos de scroll reveal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Diseño responsive */
+@media (min-width: 992px) {
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .about-image {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .about-image::before {
+    width: 100px;
+    height: 100%;
+    right: -1px;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 1200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' fill='%23ffffff'/%3E%3C/svg%3E");
+    background-position: right;
+  }
+
+  .about-image h3 {
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .about-content {
+    padding: 2.5rem 2rem;
+  }
+  
+  .about-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .icon-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .about {
+    margin: 2rem 1rem;
+  }
+  
+  .about-image {
+    height: 300px;
+  }
+  
+  .about-image h3 {
+    font-size: 2rem;
+  }
+  
+  .about-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .about-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .icon-container {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .icon {
+    padding: 2rem 1rem;
+  }
+}
+
+

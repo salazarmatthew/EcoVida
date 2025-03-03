@@ -1,0 +1,274 @@
+/* Paleta de colores */
+:root {
+    --mocha-dark: #4A2C2A;
+    --mocha-medium: #8B5E3C;
+    --mocha-light: #D9A384;
+    --mocha-accent: #F2D7B6;
+    --success-green: #2E7D32;
+    --bg-light: #FFF8F0;
+    --shadow-color: rgba(74, 44, 42, 0.15);
+  }
+  
+  /* Fondo animado */
+  .order-success {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f5efe6, #fff8f0);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Decoraciones del fondo */
+  .order-success::before,
+  .order-success::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: float 15s infinite ease-in-out;
+  }
+  
+  .order-success::before {
+    background: radial-gradient(circle, var(--mocha-accent) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+    animation-delay: 0s;
+  }
+  
+  .order-success::after {
+    background: radial-gradient(circle, var(--mocha-light) 0%, transparent 70%);
+    bottom: -100px;
+    left: -100px;
+    animation-delay: 7.5s;
+  }
+  
+  /* Animación flotante para las burbujas decorativas */
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(50px, 50px); }
+    50% { transform: translate(0, 100px); }
+    75% { transform: translate(-50px, 50px); }
+  }
+  
+  /* Contenedor principal */
+  .order-success-box {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 550px;
+    width: 100%;
+    box-shadow: 0 20px 60px var(--shadow-color);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    animation: appear 0.8s ease-out;
+    overflow: hidden;
+  }
+  
+  /* Borde decorativo */
+  .order-success-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(to right, var(--mocha-light), var(--success-green), var(--mocha-accent));
+    border-radius: 24px 24px 0 0;
+  }
+  
+  /* Confeti que cae */
+  .order-success-box::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background-image: 
+      radial-gradient(circle, var(--mocha-light) 2px, transparent 2px),
+      radial-gradient(circle, var(--mocha-accent) 2px, transparent 2px),
+      radial-gradient(circle, var(--success-green) 2px, transparent 2px);
+    background-size: 16px 16px, 24px 24px, 32px 32px;
+    animation: confetti 3s ease-in forwards;
+    opacity: 0;
+  }
+  
+  @keyframes confetti {
+    0% { 
+      transform: translateY(-100px);
+      opacity: 1;
+    }
+    100% { 
+      transform: translateY(500px);
+      opacity: 0;
+    }
+  }
+  
+  /* Logo estilizado */
+  .order-success-box .logo-container {
+    margin-bottom: 20px;
+    transform: scale(0.9);
+  }
+  
+  /* Animación de entrada */
+  @keyframes appear {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Imagen de éxito */
+  .order-success-box img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 20px auto;
+    filter: drop-shadow(0 5px 10px rgba(46, 125, 50, 0.2));
+    animation: pulse 2s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  /* Títulos con animación */
+  .order-success-box h4 {
+    margin: 15px 0;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--success-green) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    animation: slideUp 0.6s forwards;
+  }
+  
+  .order-success-box h4:nth-of-type(1) {
+    animation-delay: 0.3s;
+  }
+  
+  .order-success-box h4:nth-of-type(2) {
+    animation-delay: 0.6s;
+    font-size: 1.1rem;
+    color: var(--mocha-medium) !important;
+  }
+  
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Email destacado */
+  .order-success-box h4 span.email {
+    background: rgba(46, 125, 50, 0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-block;
+    position: relative;
+  }
+  
+  /* Botón con efectos interactivos */
+  .order-success-box button {
+    background: linear-gradient(135deg, var(--mocha-medium), var(--mocha-dark));
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    margin-top: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.5s 0.8s forwards;
+    transform: translateZ(0);
+  }
+  
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  
+  .order-success-box button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+  }
+  
+  .order-success-box button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 25px rgba(74, 44, 42, 0.25);
+  }
+  
+  .order-success-box button:hover::before {
+    left: 100%;
+  }
+  
+  .order-success-box button:active {
+    transform: translateY(-1px);
+  }
+  
+  /* Icono decorativo de marca de verificación */
+  .checkmark-circle {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin: 20px auto;
+  }
+  
+  .checkmark-circle .background {
+    fill: #5cb85c;
+    stroke: #5cb85c;
+  }
+  
+  .checkmark-circle .checkmark {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke: white;
+    animation: stroke 0.5s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards;
+  }
+  
+  @keyframes stroke {
+    100% { stroke-dashoffset: 0; }
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .order-success-box {
+      padding: 30px 20px;
+    }
+    
+    .order-success-box h4 {
+      font-size: 1.1rem;
+    }
+    
+    .order-success-box h4:nth-of-type(2) {
+      font-size: 0.95rem;
+    }
+    
+    .order-success-box img {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .order-success-box button {
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+  }

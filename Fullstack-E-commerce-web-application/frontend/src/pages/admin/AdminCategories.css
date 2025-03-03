@@ -1,0 +1,202 @@
+/* Paleta de colores en tonos café */
+:root {
+    --mocha-dark: #4A2C2A; /* Café oscuro */
+    --mocha-medium: #8B5E3C; /* Café medio */
+    --mocha-light: #D9A384; /* Café claro */
+    --mocha-accent: #F2D7B6; /* Tono crema claro */
+    --text-light: #FFF8F0; /* Texto claro */
+    --shadow-color: rgba(74, 44, 42, 0.2); /* Sombra suave */
+  }
+  
+  /* Estilo general del contenedor */
+  .admin-categories-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, var(--mocha-dark), var(--mocha-medium));
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    color: var(--text-light);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Título */
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--mocha-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+  }
+  
+  /* Mensajes de estado */
+  .loading-message,
+  .error-message {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .loading-message {
+    background-color: var(--mocha-light);
+    color: var(--mocha-dark);
+  }
+  
+  .error-message {
+    background-color: #ff6b6b;
+    color: var(--text-light);
+  }
+  
+  /* Formulario */
+  .category-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--mocha-accent);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    margin-bottom: 40px;
+  }
+  
+  .category-form input {
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--text-light);
+    color: var(--mocha-dark);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .category-form input:focus {
+    box-shadow: 0 0 10px var(--mocha-light);
+    transform: scale(1.02);
+  }
+  
+  .category-form input::placeholder {
+    color: var(--mocha-medium);
+    opacity: 0.7;
+  }
+  
+  /* Botón de crear/actualizar */
+  .create-category-btn {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-light);
+    background-color: var(--mocha-light);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .create-category-btn:hover {
+    background-color: var(--mocha-medium);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+  }
+  
+  /* Lista de categorías */
+  .categories-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .category-card {
+    background-color: var(--mocha-accent);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+  }
+  
+  .category-card h3 {
+    font-size: 1.4rem;
+    color: var(--mocha-dark);
+    margin-bottom: 10px;
+  }
+  
+  .category-card p {
+    font-size: 1rem;
+    color: var(--mocha-medium);
+    margin-bottom: 15px;
+  }
+  
+  /* Botones de acción */
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .edit-btn {
+    background-color: var(--mocha-light);
+    color: var(--text-light);
+  }
+  
+  .edit-btn:hover {
+    background-color: var(--mocha-medium);
+    transform: translateY(-2px);
+  }
+  
+  .delete-btn {
+    background-color: #ff6b6b;
+    color: var(--text-light);
+  }
+  
+  .delete-btn:hover {
+    background-color: #e63946;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .admin-categories-container {
+      padding: 20px;
+      margin: 20px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .category-form {
+      padding: 15px;
+    }
+  
+    .categories-list {
+      grid-template-columns: 1fr;
+    }
+
+    /* Dentro de adminCategories.css, agregar este estilo */
+.editing-title {
+    font-size: 1.6rem;
+    color: var(--mocha-dark);
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  }

@@ -1,0 +1,14 @@
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 70px; /* Más altura */
+    overflow: hidden;
+    margin: -10px 0; /* Mayor compensación negativa */
+  }
+  
+  .logo-image {
+    height: auto;
+    width: 180px; /* Más ancho */
+    object-fit: contain;
+    max-height: 300px; /* Más altura máxima */
+  }

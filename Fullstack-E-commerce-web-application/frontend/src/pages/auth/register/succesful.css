@@ -1,0 +1,397 @@
+/* Paleta de colores adaptada a tonos café (igual que login) */
+:root {
+  --mocha-dark: #3A1C1A;
+  --mocha-medium: #8B5E3C;
+  --mocha-light: #D9A384;
+  --mocha-accent: #F2D7B6;
+  --mocha-light-bg: #FFF8F0;
+  --text-light: #FFF8F0;
+  --shadow-color: rgba(58, 28, 26, 0.3);
+  --error-color: #D32F2F;
+  --error-bg: rgba(211, 47, 47, 0.1);
+  --accent-color: #D9A384; /* Color de acento que reemplaza al verde */
+  --accent-light: #F2D7B6; /* Color claro que reemplaza al verde claro */
+  --gold: #B07D56;         /* Tono más café en lugar del dorado */
+  --gold-light: #E8D2C3;   /* Tono café claro en lugar del dorado claro */
+  --card-shadow: rgba(58, 28, 26, 0.2);
+}
+
+/* Contenedor principal con fondo café */
+.order-success {
+  min-height: 100vh;
+  width: 100%;
+  /* Cambiado a tonos café */
+  background: linear-gradient(135deg, #3A1C1A, #6B4226, #8B5E3C, #9E7955);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animación del fondo - sin cambios */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Elementos decorativos flotantes con tonos café */
+.order-success::before,
+.order-success::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  filter: blur(50px);
+}
+
+.order-success::before {
+  width: 500px;
+  height: 500px;
+  /* Cambiado a tono café claro */
+  background: radial-gradient(circle, var(--mocha-light) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  animation: float 15s ease-in-out infinite alternate;
+}
+
+.order-success::after {
+  width: 400px;
+  height: 400px;
+  /* Cambiado a tono café más claro */
+  background: radial-gradient(circle, var(--mocha-accent) 0%, transparent 70%);
+  bottom: -100px;
+  left: -100px;
+  animation: float 15s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes float {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.1); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+/* Confeti animado en el fondo con tonos café */
+.order-success::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Cambiado a tonos café */
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(217, 163, 132, 0.1) 0, rgba(217, 163, 132, 0.1) 5px, transparent 6px),
+    radial-gradient(circle at 80% 30%, rgba(242, 215, 182, 0.1) 0, rgba(242, 215, 182, 0.1) 8px, transparent 9px),
+    radial-gradient(circle at 40% 80%, rgba(139, 94, 60, 0.1) 0, rgba(139, 94, 60, 0.1) 10px, transparent 11px),
+    radial-gradient(circle at 70% 90%, rgba(176, 125, 86, 0.1) 0, rgba(176, 125, 86, 0.1) 7px, transparent 8px);
+  animation: confettiMove 20s infinite linear;
+}
+
+@keyframes confettiMove {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+  100% { background-position: 500px 500px, -500px 500px, 500px -500px, -500px -500px; }
+}
+
+/* Tarjeta de éxito con efecto de cristal */
+.order-success-box {
+  max-width: 500px;
+  width: 100%;
+  background: rgba(255, 194, 148, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  box-shadow: 
+    0 25px 60px var(--card-shadow),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset,
+    0 0 0 3px rgba(255, 255, 255, 0.2);
+  padding: 50px 40px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  animation: cardAppear 1s cubic-bezier(0.26, 0.53, 0.74, 1.48);
+}
+
+@keyframes cardAppear {
+  0% { opacity: 0; transform: scale(0.8) translateY(40px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Efecto de borde brillante con tonos café */
+.order-success-box::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  /* Cambiado a tonos café */
+  background: linear-gradient(45deg, 
+    rgba(217, 163, 132, 0),
+    rgba(217, 163, 132, 0),
+    rgba(217, 163, 132, 0.5),
+    rgba(176, 125, 86, 0.5),
+    rgba(217, 163, 132, 0.5),
+    rgba(217, 163, 132, 0),
+    rgba(217, 163, 132, 0)
+  );
+  background-size: 200% 200%;
+  animation: glowingBorder 3s linear infinite;
+  border-radius: 28px;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+@keyframes glowingBorder {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
+}
+
+/* Logo más grande y estático */
+.order-success-box .logo-container {
+  margin: 0 auto 40px; /* Mayor espacio debajo */
+  transform: scale(2.2); /* Mucho más grande - 120% más grande que el original */
+  filter: drop-shadow(0 8px 20px rgba(58, 28, 26, 0.6)); /* Sombra más fuerte para destacar */
+  position: relative;
+  z-index: 5; /* Asegura que esté por encima de otros elementos */
+  /* Eliminada la animación de rebote para hacerlo estático */
+  animation: logoAppearStatic 1s cubic-bezier(0.26, 0.53, 0.74, 1.48) forwards;
+}
+
+
+.order-success-box img {
+  width: 120px;
+  height: 120px;
+  margin: 15px auto 25px;
+  display: block;
+  /* Cambiado a tono café */
+  filter: drop-shadow(0 4px 10px rgba(139, 94, 60, 0.3));
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  /* Cambiado a tono café */
+  0%, 100% { filter: drop-shadow(0 4px 10px rgba(139, 94, 60, 0.3)); transform: scale(1); }
+  50% { filter: drop-shadow(0 4px 18px rgba(139, 94, 60, 0.5)); transform: scale(1.05); }
+}
+
+/* Título con animación de entrada */
+.order-success-box h4 {
+  font-size: 1.8rem !important;
+  margin: 0 0 35px !important;
+  line-height: 1.4 !important;
+  /* Cambiado a tono café oscuro */
+  color: var(--mocha-dark) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideInUp 0.8s 0.5s both;
+  position: relative;
+  display: inline-block;
+}
+
+.order-success-box h4::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  /* Cambiado a tonos café */
+  background: linear-gradient(to right, var(--mocha-medium), var(--mocha-light));
+  border-radius: 3px;
+}
+
+@keyframes slideInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Botón de iniciar sesión con efectos en tonos café */
+.order-success-box button {
+  /* Cambiado a gradiente en tonos café */
+  background: linear-gradient(135deg, var(--mocha-medium), var(--mocha-dark));
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* Cambiado a sombra en tono café */
+  box-shadow: 0 6px 20px rgba(58, 28, 26, 0.25), 
+              inset 0 1px 0 rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.8s 1s both;
+  letter-spacing: 0.5px;
+}
+
+.order-success-box button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.7s ease;
+}
+
+.order-success-box button:hover {
+  transform: translateY(-4px);
+  /* Cambiado a sombra en tono café */
+  box-shadow: 0 10px 25px rgba(58, 28, 26, 0.35),
+              inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.order-success-box button:hover::after {
+  left: 100%;
+}
+
+.order-success-box button:active {
+  transform: translateY(-2px);
+  /* Cambiado a sombra en tono café */
+  box-shadow: 0 5px 15px rgba(58, 28, 26, 0.3);
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Efecto de confeti al cargar la página - en tonos café */
+.confetti {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  /* Cambiado a color café */
+  background-color: var(--mocha-medium);
+  animation: confetti-fall 10s linear infinite;
+}
+
+.confetti:nth-child(odd) {
+  background-color: var(--mocha-light);
+}
+
+.confetti:nth-child(3n) {
+  background-color: var(--mocha-accent);
+}
+
+.confetti:nth-child(4n) {
+  background-color: var(--gold-light);
+}
+
+/* Generar 20 elementos de confeti con JavaScript */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Efectos adicionales dentro de la tarjeta */
+.order-success-box::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 20%, rgba(255, 255, 255, 0.1), transparent 80%);
+  animation: lightSweep 4s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes lightSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Media queries para distintos tamaños de pantalla */
+@media (max-width: 600px) {
+  .order-success-box {
+    padding: 40px 25px;
+  }
+  
+  .order-success-box img {
+    width: 90px;
+    height: 90px;
+    margin: 10px auto 20px;
+  }
+  
+  .order-success-box h4 {
+    font-size: 1.5rem !important;
+    margin: 0 0 30px !important;
+  }
+  
+  .order-success-box button {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+  }
+}
+
+
+
+/* Animación para añadir confeti dinámico con JavaScript */
+.dynamic-confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  /* Cambiado a color café */
+  background: var(--mocha-medium);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Actualización de los colores del confeti generado dinámicamente */
+/* Si implementas esta función de JavaScript, actualiza los colores: */
+/*
+function createConfetti(container) {
+  const confetti = document.createElement('div');
+  confetti.classList.add('dynamic-confetti');
+  
+  // Posición aleatoria en la parte superior
+  confetti.style.left = Math.random() * 100 + '%';
+  confetti.style.top = '-10px';
+  
+  // Tamaño aleatorio
+  const size = Math.floor(Math.random() * 10) + 5;
+  confetti.style.width = size + 'px';
+  confetti.style.height = size + 'px';
+  
+  // Color aleatorio - CAMBIADO A TONOS CAFÉ
+  const colors = ['#8B5E3C', '#D9A384', '#B07D56', '#F2D7B6'];
+  confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+  
+  // Forma aleatoria
+  const shapes = ['circle', 'square', 'diamond'];
+  const shape = shapes[Math.floor(Math.random() * shapes.length)];
+  if (shape === 'circle') {
+    confetti.style.borderRadius = '50%';
+  } else if (shape === 'diamond') {
+    confetti.style.transform = 'rotate(45deg)';
+  }
+  
+  // Animación
+  confetti.style.animation = `confetti-fall ${Math.random() * 5 + 3}s linear forwards`;
+  
+  container.appendChild(confetti);
+  
+  // Eliminar después de la animación
+  setTimeout(() => {
+    confetti.remove();
+  }, 8000);
+}
+*/

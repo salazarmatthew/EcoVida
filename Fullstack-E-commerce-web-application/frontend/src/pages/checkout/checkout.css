@@ -1,0 +1,398 @@
+/* Paleta de colores */
+:root {
+    --mocha-dark: #4A2C2A;
+    --mocha-medium: #8B5E3C;
+    --mocha-light: #D9A384;
+    --mocha-accent: #F2D7B6;
+    --mocha-light-bg: #FFF8F0;
+    --success-color: #2E7D32;
+    --error-color: #D32F2F;
+    --shadow-color: rgba(74, 44, 42, 0.15);
+    --border-radius: 12px;
+  }
+  
+  /* Estilos generales de la página de checkout */
+  .checkout-container {
+    max-width: 1200px;
+    margin: 2rem auto 4rem;
+    padding: 0 20px;
+  }
+  
+  .checkout-container h1 {
+    text-align: center;
+    color: var(--mocha-dark);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    font-weight: 700;
+  }
+  
+  .checkout-container h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--mocha-light), var(--mocha-accent));
+    margin: 0.8rem auto;
+    border-radius: 2px;
+  }
+  
+  /* Contenedor principal con efecto de tarjeta */
+  .checkout-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Formulario lateral */
+  .checkout-wrapper form {
+    padding: 35px;
+    background: white;
+    position: relative;
+  }
+  
+  .checkout-wrapper form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, var(--mocha-light), var(--mocha-accent));
+    border-radius: 5px;
+  }
+  
+  /* Campos de formulario */
+  .input-box {
+    margin-bottom: 22px;
+    position: relative;
+  }
+  
+  .input-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--mocha-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  
+  .input-box .form-control {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--mocha-light-bg);
+    color: var(--mocha-dark);
+  }
+  
+  .input-box .form-control:focus {
+    border-color: var(--mocha-light);
+    box-shadow: 0 0 0 3px rgba(217, 163, 132, 0.2);
+    outline: none;
+  }
+  
+  .input-box .form-control::placeholder {
+    color: #aaa;
+  }
+  
+  /* Mensajes de error */
+  .text-danger {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500;
+  }
+  
+  /* Botón de envío */
+  form button[type="submit"] {
+    background: linear-gradient(135deg, var(--mocha-medium), var(--mocha-dark));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  form button[type="submit"]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+  }
+  
+  form button[type="submit"]:hover {
+    box-shadow: 0 7px 15px rgba(74, 44, 42, 0.25);
+    transform: translateY(-2px);
+  }
+  
+  form button[type="submit"]:hover::after {
+    left: 100%;
+  }
+  
+  form button.loading {
+    background: #999;
+    cursor: not-allowed;
+  }
+  
+  /* Resumen del pedido */
+  summary {
+    background: linear-gradient(160deg, #f8f2eb, #fff8f0);
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  }
+  
+  summary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--mocha-light), transparent);
+  }
+  
+  summary h2 {
+    color: var(--mocha-dark);
+    font-size: 1.5rem;
+    margin: 0 0 15px;
+    font-weight: 700;
+  }
+  
+  summary hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--mocha-light), transparent);
+    margin: 15px 0;
+  }
+  
+  /* Productos en el resumen */
+  .product {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease;
+  }
+  
+  .product:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .product img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+    border: 2px solid var(--mocha-accent);
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .product-info h4 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    color: var(--mocha-dark);
+  }
+  
+  .product-price {
+    color: var(--mocha-medium);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  /* Subtotal */
+  summary h3 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    color: var(--mocha-dark);
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(242, 215, 182, 0.3);
+    border-radius: 8px;
+  }
+  
+  summary small {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 10px 0 20px;
+    line-height: 1.5;
+  }
+  
+  summary a button {
+    background: white;
+    color: var(--mocha-dark);
+    border: 2px solid var(--mocha-light);
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  summary a button:hover {
+    background: var(--mocha-accent);
+    border-color: var(--mocha-medium);
+    color: var(--mocha-dark);
+  }
+  
+  /* Header específico para checkout */
+  .app-header {
+    background: linear-gradient(135deg, var(--mocha-dark), var(--mocha-medium));
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Detalles estéticos adicionales */
+  .checkout-container::before {
+    content: '';
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--mocha-accent) 0%, transparent 70%);
+    opacity: 0.4;
+    z-index: -1;
+    border-radius: 50%;
+  }
+  
+  /* Scroll suave para toda la página */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 900px) {
+    .checkout-wrapper {
+      grid-template-columns: 1fr;
+    }
+    
+    .checkout-wrapper form::before {
+      width: 100%;
+      height: 5px;
+      top: auto;
+      bottom: 0;
+      background: linear-gradient(to right, var(--mocha-light), var(--mocha-accent));
+    }
+    
+    summary {
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+    
+    summary::before {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .checkout-container {
+      padding: 0 15px;
+      margin: 1rem auto 3rem;
+    }
+    
+    .checkout-wrapper form, summary {
+      padding: 25px 20px;
+    }
+    
+    .checkout-container h1 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* Animaciones para mejor UX */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .checkout-container {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .input-box {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .input-box:nth-child(1) { animation-delay: 0.1s; }
+  .input-box:nth-child(2) { animation-delay: 0.2s; }
+  .input-box:nth-child(3) { animation-delay: 0.3s; }
+  .input-box:nth-child(4) { animation-delay: 0.4s; }
+  .input-box:nth-child(5) { animation-delay: 0.5s; }
+  .input-box:nth-child(6) { animation-delay: 0.6s; }
+  
+  .product:nth-child(1) { animation-delay: 0.3s; }
+  .product:nth-child(2) { animation-delay: 0.4s; }
+  .product:nth-child(3) { animation-delay: 0.5s; }
+  
+  /* Mejoras para la experiencia de usuario */
+  .form-success {
+    background-color: rgba(46, 125, 50, 0.1);
+    color: var(--success-color);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+  
+  /* Estilos para estados de carga */
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--mocha-accent);
+    border-radius: 50%;
+    border-top-color: var(--mocha-dark);
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }

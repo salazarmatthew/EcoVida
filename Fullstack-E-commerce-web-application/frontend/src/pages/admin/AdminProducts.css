@@ -1,0 +1,265 @@
+/* Paleta de colores en tonos café */
+:root {
+    --mocha-dark: #4A2C2A; /* Café oscuro */
+    --mocha-medium: #8B5E3C; /* Café medio */
+    --mocha-light: #D9A384; /* Café claro */
+    --mocha-accent: #F2D7B6; /* Tono crema claro */
+    --text-light: #FFF8F0; /* Texto claro */
+    --shadow-color: rgba(74, 44, 42, 0.2); /* Sombra suave */
+  }
+  
+  /* Contenedor principal */
+  .admin-products-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, var(--mocha-dark), var(--mocha-medium));
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    color: var(--text-light);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Título */
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--mocha-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+  }
+  
+  /* Mensajes de estado */
+  .loading-message,
+  .error-message {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .loading-message {
+    background-color: var(--mocha-light);
+    color: var(--mocha-dark);
+  }
+  
+  .error-message {
+    background-color: #ff6b6b;
+    color: var(--text-light);
+  }
+  
+  /* Botón de agregar producto */
+  .create-btn {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-light);
+    background-color: var(--mocha-light);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .create-btn:hover {
+    background-color: var(--mocha-medium);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+  }
+  
+  /* Lista de productos */
+  .products-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Tarjeta de producto */
+  .product-card {
+    background-color: var(--mocha-accent);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+  }
+  
+  .product-card h3 {
+    font-size: 1.5rem;
+    color: var(--mocha-dark);
+    margin-bottom: 10px;
+  }
+  
+  .product-card p {
+    font-size: 1rem;
+    color: var(--mocha-medium);
+    margin: 5px 0;
+  }
+  
+  /* Acciones del producto */
+  .product-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    background-color: var(--mocha-light);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .edit-btn:hover {
+    background-color: var(--mocha-medium);
+    transform: translateY(-2px);
+  }
+  
+  /* Modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: var(--mocha-accent);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.8rem;
+    color: var(--mocha-dark);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--text-light);
+    color: var(--mocha-dark);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .modal-content input:focus {
+    box-shadow: 0 0 10px var(--mocha-light);
+    transform: scale(1.02);
+  }
+  
+  .modal-content input::placeholder {
+    color: var(--mocha-medium);
+    opacity: 0.7;
+  }
+  
+  /* Acciones del modal */
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .save-btn,
+  .cancel-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .save-btn {
+    background-color: var(--mocha-light);
+    color: var(--text-light);
+  }
+  
+  .save-btn:hover {
+    background-color: var(--mocha-medium);
+    transform: translateY(-2px);
+  }
+  
+  .cancel-btn {
+    background-color: #ff6b6b;
+    color: var(--text-light);
+  }
+  
+  .cancel-btn:hover {
+    background-color: #e63946;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .admin-products-container {
+      padding: 20px;
+      margin: 20px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .products-list {
+      grid-template-columns: 1fr;
+    }
+  
+    .modal-content {
+      width: 90%;
+      padding: 15px;
+    }
+
+    /* Dentro de adminProducts.css, agregar este estilo */
+.modal-content select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--text-light);
+    color: var(--mocha-dark);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .modal-content select:focus {
+    box-shadow: 0 0 10px var(--mocha-light);
+    transform: scale(1.02);
+  }
+  
+  .modal-content select option {
+    color: var(--mocha-dark);
+  }
+  
+  }

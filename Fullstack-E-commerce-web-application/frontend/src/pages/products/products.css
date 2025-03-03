@@ -1,0 +1,187 @@
+/* Importamos la misma paleta de colores */
+:root {
+    --mocha-dark: #4A2C2A; /* Café oscuro */
+    --mocha-medium: #8B5E3C; /* Café medio */
+    --mocha-light: #D9A384; /* Café claro */
+    --mocha-accent: #F2D7B6; /* Crema claro */
+    --text-light: #FFF8F0; /* Texto claro */
+    --shadow-color: rgba(74, 44, 42, 0.2); /* Sombra */
+  }
+  
+  /* Estilos para la sección de categorías */
+  .category-wrapper {
+    padding: 20px 0;
+    background: linear-gradient(to right, var(--mocha-dark), var(--mocha-medium));
+  }
+  
+  .category-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  
+  .category {
+    padding: 10px 20px;
+    color: var(--text-light);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 1px solid transparent;
+  }
+  
+  .category:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .category.active {
+    background-color: var(--mocha-light);
+    color: var(--mocha-dark);
+    border: 1px solid var(--mocha-accent);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilos para la sección de productos */
+  .products-container {
+    background-color: var(--text-light);
+    padding: 40px 20px;
+  }
+  
+  .products-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  
+  .box {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+  }
+  
+  .image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+  
+  /* Contenedor de texto */
+  .text-part {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  /* Nombre del producto */
+  .name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--mocha-dark);
+    margin: 0;
+  }
+  
+ /* Precio del producto - estilo minimalista con la paleta de colores de café */
+.price {
+    color: var(--mocha-medium); /* Color de café medio en lugar de verde/rojo */
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: static; /* Asegura que no esté posicionado absolutamente */
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Contenedor de texto - asegura el orden correcto */
+  .text-part {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  /* Nombre del producto siempre primero */
+  .name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--mocha-dark);
+    margin: 0;
+    order: 0; /* Asegura que esté primero */
+  }
+  
+  /* El precio siempre segundo */
+  .price {
+    order: 1; /* Asegura que esté después del nombre */
+  }
+  
+  /* La descripción siempre tercera */
+  .description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-top: 10px;
+    order: 2; /* Asegura que esté después del precio */
+  }
+  /* Botón de añadir al carrito */
+  .box button {
+    background: linear-gradient(to right, var(--mocha-medium), var(--mocha-dark));
+    color: var(--text-light);
+    border: none;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  
+  .box button:hover {
+    background: linear-gradient(to right, var(--mocha-dark), var(--mocha-medium));
+  }
+  
+  /* Estilos para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .products-wrapper {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    
+    .name {
+      font-size: 1.1rem;
+    }
+    
+    .price {
+      font-size: 1.2rem;
+    }
+    
+    .text-part {
+      padding: 15px;
+    }
+  }

@@ -1,0 +1,285 @@
+/* Variables de color basadas en la paleta café y tonos naturales */
+:root {
+    --mocha-dark: #4A2C2A;
+    --mocha-medium: #8B5E3C;
+    --mocha-light: #D9A384;
+    --mocha-accent: #F2D7B6;
+    --forest-green: #2C5F2D;
+    --leaf-green: #97BC62;
+    --earth-brown: #5C4033;
+    --sky-blue: #A1CDF1;
+    --text-light: #FFF8F0;
+  }
+  
+  .hero-section {
+    position: relative;
+    min-height: 85vh;
+    background: linear-gradient(170deg, rgba(139, 94, 60, 0.9), rgba(74, 44, 42, 0.85)), 
+                url('https://images.unsplash.com/photo-1595831377260-3664fa313a8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    overflow: hidden;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Elementos decorativos orgánicos */
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 40%;
+    height: 70%;
+    background: radial-gradient(circle, var(--leaf-green) 0%, transparent 70%);
+    opacity: 0.15;
+    border-radius: 50%;
+    animation: float 15s ease-in-out infinite alternate;
+  }
+  
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 50%;
+    height: 60%;
+    background: radial-gradient(circle, var(--mocha-accent) 0%, transparent 70%);
+    opacity: 0.15;
+    border-radius: 40% 60%;
+    animation: float 18s ease-in-out infinite alternate-reverse;
+  }
+  
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+    background: linear-gradient(45deg, var(--text-light) 30%, var(--mocha-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: slideDown 1s ease-out;
+  }
+  
+  .hero-content h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 248, 240, 0.9);
+    animation: fadeIn 1.5s ease-out;
+  }
+  
+  /* Botones con animación y efecto orgánico */
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    animation: slideUp 1.2s ease-out;
+  }
+  
+  .primary-button, .secondary-button {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border: none;
+    overflow: hidden;
+    letter-spacing: 1px;
+  }
+  
+  .primary-button {
+    background: linear-gradient(135deg, var(--forest-green), var(--leaf-green));
+    color: var(--text-light);
+    box-shadow: 0 4px 15px rgba(44, 95, 45, 0.4);
+  }
+  
+  .primary-button:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(44, 95, 45, 0.5);
+  }
+  
+  .secondary-button {
+    background: transparent;
+    border: 2px solid var(--mocha-light);
+    color: var(--text-light);
+  }
+  
+  .secondary-button:hover {
+    background: rgba(217, 163, 132, 0.15);
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(217, 163, 132, 0.25);
+  }
+  
+  .primary-button::before, .secondary-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s;
+  }
+  
+  .primary-button:hover::before, .secondary-button:hover::before {
+    left: 100%;
+  }
+  
+  /* Badges con efecto hover y animación */
+  .hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    animation: fadeIn 2s ease-out;
+  }
+  
+  .badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .badge:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .badge i {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--mocha-light), var(--mocha-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+  }
+  
+  .badge:hover i {
+    transform: scale(1.2);
+  }
+  
+  .badge span {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Animaciones */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate(10px, 10px) rotate(5deg);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
+    .hero-content h1 {
+      font-size: 2.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-section {
+      min-height: 70vh;
+    }
+    
+    .hero-content h1 {
+      font-size: 2.2rem;
+    }
+    
+    .hero-content h3 {
+      font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .primary-button, .secondary-button {
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .hero-badges {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .badge {
+      padding: 1rem;
+      width: calc(50% - 2rem);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-content h1 {
+      font-size: 1.8rem;
+    }
+    
+    .badge {
+      width: 100%;
+    }
+  }
